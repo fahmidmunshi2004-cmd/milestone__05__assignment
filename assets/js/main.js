@@ -135,21 +135,61 @@ async function openModal(id) {
         const issue = data.data;
 
         const modal = document.createElement("div");
-        modal.className = "fixed inset-0 bg-black/50 flex items-center justify-center z-50";
+        // modal.className = "fixed inset-0 bg-black/50 flex items-center justify-center z-50";
 
         modal.innerHTML = `
-            <div class="bg-white w-[500px] p-6 rounded-lg relative">
-                <button onclick="this.parentElement.parentElement.remove()" 
-                        class="absolute right-4 top-4 text-xl">✕</button>
+<div class="fixed inset-0 bg-black/20 flex items-center justify-center p-4 z-50">
+    <div class="bg-white w-full max-w-[700px] rounded-2xl shadow-lg p-8 relative">
+        
+        <h2 class="text-[28px] font-bold text-[#1E293B] mb-4">${issue.title}</h2>
 
-                <h2 class="text-2xl font-bold mb-4">${issue.title}</h2>
-                <p class="mb-4 text-gray-600">${issue.description}</p>
-                <p><strong>Status:</strong> ${issue.status}</p>
-                <p><strong>Priority:</strong> ${issue.priority}</p>
-                <p><strong>Author:</strong> ${issue.author}</p>
-                <p><strong>Date:</strong> ${issue.createdAt}</p>
+        <div class="flex items-center gap-3 mb-6">
+            <span class="px-3 py-1 ${issue.status === 'open' ? 'bg-[#00A96E] text-white' : 'bg-[#A855F7] text-white'} text-sm font-medium rounded-full flex items-center">
+                ${issue.status.charAt(0).toUpperCase() + issue.status.slice(1)}
+            </span>
+            <span class="text-[#64748B] text-sm flex items-center gap-2">
+                <span class="w-1 h-1 bg-[#64748B] rounded-full"></span>
+                Opened by ${issue.author}
+                <span class="w-1 h-1 bg-[#64748B] rounded-full"></span>
+                ${issue.createdAt}
+            </span>
+        </div>
+
+        <div class="flex items-center gap-3 mb-8">
+            ${issue.labels.map(label => `
+            <div class="flex items-center gap-1.5 px-3 py-1 ${label === 'Bug' ? 'bg-[#FFF0F0] border-[#FFDADA]' : 'bg-[#FFF9E6] border-[#FFECB3]'} border rounded-full">
+                <span class="text-xs">${label === 'Bug' ? '👹' : '⚙️'}</span>
+                <span class="text-[11px] font-bold uppercase tracking-wider ${label === 'Bug' ? 'text-[#FF5A5F]' : 'text-[#D97706]'}">${label}</span>
             </div>
-        `;
+            `).join("")}
+        </div>
+
+        <p class="text-[#64748B] text-lg leading-relaxed mb-10">
+            ${issue.description}
+        </p>
+
+        <div class="bg-[#F8FAFC] rounded-2xl p-6 flex items-start gap-32 mb-8">
+            <div class="space-y-2">
+                <p class="text-[#64748B] text-lg">Assignee:</p>
+                <p class="text-[#1E293B] font-bold text-xl">${issue.author}</p>
+            </div>
+            <div class="space-y-3">
+                <p class="text-[#64748B] text-lg">Priority:</p>
+                <span class="px-4 py-1.5 ${issue.priority === 'HIGH' ? 'bg-[#EF4444] text-white shadow-red-200' : 'bg-[#F59E0B] text-white shadow-yellow-200'} text-xs font-bold rounded-lg shadow-sm">
+                    ${issue.priority.toUpperCase()}
+                </span>
+            </div>
+        </div>
+
+        <div class="flex justify-end">
+            <button onclick="this.closest('.fixed').remove()" 
+                class="bg-[#4F00FF] hover:bg-[#4300D9] text-white font-bold py-3 px-10 rounded-xl transition-all text-lg shadow-md shadow-indigo-100">
+                Close
+            </button>
+        </div>
+    </div>
+</div>
+`;
 
         document.body.appendChild(modal);
     } catch (err) {
