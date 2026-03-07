@@ -18,17 +18,32 @@
     <!-- custom css -->
     <link rel="stylesheet" href="./assets/css/style.css">
 
-    <section class="login-area w-[520px] h-[745px]">
-        <div class="login-card">
-            <div class="img">
-                <img src="./assets/img/logo/git-logo.png" alt="">
-            </div>
-        </div>
-    </section>
+    <!-- fav -->
+    <link rel="shortcut icon" href="./assets/img/logo/fav-icon.png" type="image/x-icon">
+
 
 </head>
 
 <body>
+    <header class="header-area bg-white">
+        <div class="max-w-[1450px] mx-auto flex items-center justify-between py-[14px]">
+            <div class="logo">
+                <a href="#">
+                    <img src="./assets/img/logo/main-logo.png" alt="">
+                </a>
+            </div>
+            <div class="right flex items-center gap-4">
+                <div class="search flex items-center gap-4">
+                    <input type="text" placeholder="Search issues..."
+                        class="w-[300px] px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 placeholder:text-gray-400">
+                    <button
+                        class="w-full bg-[#4A00FF] hover:bg-[#4300D9] text-white font-bold py-3 rounded-xl transition-all text-lg">
+                        Search
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
 
 </body>
 
