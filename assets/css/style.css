@@ -1,0 +1,17 @@
+:root {
+    --4a00ff: #4a00ff;
+    --f8fafc: #f8fafc;
+    --style: #1f2937;
+    --64748b: #64748b;
+    --e4e4e7: #e4e4e7;
+    --00a96e: #00a96e;
+    --ef4444: #ef4444;
+}
+
+html,
+body {
+    font-family: "Geist", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    scroll-behavior: smooth;
+}
