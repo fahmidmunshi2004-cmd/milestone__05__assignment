@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Application Tracker</title>
 
-
     <!-- font family-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +19,6 @@
 
     <!-- fav -->
     <link rel="shortcut icon" href="./assets/img/logo/fav-icon.png" type="image/x-icon">
-
 
 </head>
 
@@ -59,18 +57,17 @@
 
     <section class="max-w-[1170px] mx-auto">
         <div
-            class="tab-area bg-white p-5 w-full rounded-lg  shadow-[0_1px_6px_0_rgba(0,0,0,0.08)] border border-gray-100 inline-flex gap-3 mb-4">
-            <button class="px-8 py-2.5 bg-[#4A00FF] text-white font-semibold rounded-md transition-colors">
+            class="tab-area bg-white p-5 w-full rounded-lg shadow-[0_1px_6px_0_rgba(0,0,0,0.08)] border border-gray-100 inline-flex gap-3 mb-4">
+
+            <button class="tab-btn px-8 py-2.5 bg-[#4A00FF] text-white font-semibold rounded-md transition-colors" data-tab="all">
                 All
             </button>
 
-            <button
-                class="px-8 py-2.5 bg-white text-[#5E6C84] font-semibold border border-gray-200 rounded-md hover:bg-gray-50 transition-colors">
+            <button class="tab-btn px-8 py-2.5 bg-white text-[#5E6C84] font-semibold border border-gray-200 rounded-md hover:bg-gray-50 transition-colors" data-tab="open">
                 Open
             </button>
 
-            <button
-                class="px-8 py-2.5 bg-white text-[#5E6C84] font-semibold border border-gray-200 rounded-md hover:bg-gray-50 transition-colors">
+            <button class="tab-btn px-8 py-2.5 bg-white text-[#5E6C84] font-semibold border border-gray-200 rounded-md hover:bg-gray-50 transition-colors" data-tab="closed">
                 Closed
             </button>
         </div>
@@ -108,197 +105,13 @@
             </div>
 
             <div class="grid grid-cols-4 gap-3">
-                <div class="col-span-1">
-                    <div
-                        class="max-w-[350px] bg-white rounded-xl shadow-[0_1px_6px_0_rgba(0,0,0,0.08)] overflow-hidden open-card border-t-[3px] border-[#00A96E]">
-                        <div class="p-4">
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="w-8 h-8 rounded-full bg-[#E6F6EF] flex items-center justify-center">
-                                    <img src="./assets/img/icon/icon-01.png" alt="">
-                                </div>
-                                <span class="px-5 py-1.5 bg-[#FFF0F0] text-[#FF5A5F] text-xs font-bold rounded-full">
-                                    HIGH
-                                </span>
-                            </div>
-
-                            <h3 class="text-[18px] font-bold text-[#1E293B] leading-tight mb-2">
-                                Fix Navigation Menu On Mobile Devices
-                            </h3>
-
-                            <p class="text-[#64748B] text-sm leading-relaxed mb-5">
-                                The navigation menu doesn't collapse properly on mobile devices...
-                            </p>
-
-                            <div class="flex items-center gap-2">
-                                <div
-                                    class="flex items-center gap-1.5 px-3 py-1.5 bg-[#FFF0F0] border border-[#FFDADA] rounded-full">
-                                    <img src="./assets/img/icon/bug-icon.png" alt="">
-                                    <span class="text-[#FF5A5F] text-[11px] font-bold uppercase">Bug</span>
-                                </div>
-                                <div
-                                    class="flex items-center gap-1.5 px-3 py-1.5 bg-[#FFF9E6] border border-[#FFECB3] rounded-full">
-                                    <img src="./assets/img/icon/icon-03.png" alt="">
-                                    <span class="text-[#D97706] text-[11px] font-bold uppercase">Help Wanted</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="px-6 py-5 border-t border-gray-100">
-                            <div class="flex flex-col gap-1.5">
-                                <p class="text-[#64748B] text-[13px]">
-                                    #1 by <span class="font-medium">john_doe</span>
-                                </p>
-                                <p class="text-[#64748B] text-[13px]">
-                                    1/15/2024
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-span-1">
-                    <div
-                        class="max-w-[350px] bg-white rounded-xl shadow-[0_1px_6px_0_rgba(0,0,0,0.08)] overflow-hidden open-card border-t-[3px] border-[#00A96E]">
-                        <div class="p-4">
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="w-8 h-8 rounded-full bg-[#E6F6EF] flex items-center justify-center">
-                                    <img src="./assets/img/icon/icon-01.png" alt="">
-                                </div>
-                                <span class="px-5 py-1.5 bg-[#fff6d1] text-[#f59e0b] text-xs font-bold rounded-full">
-                                    Medium
-                                </span>
-                            </div>
-
-                            <h3 class="text-[18px] font-bold text-[#1E293B] leading-tight mb-2">
-                                Fix Navigation Menu On Mobile Devices
-                            </h3>
-
-                            <p class="text-[#64748B] text-sm leading-relaxed mb-5">
-                                The navigation menu doesn't collapse properly on mobile devices...
-                            </p>
-
-                            <div class="flex items-center gap-2">
-                                <div
-                                    class="flex items-center gap-1.5 px-3 py-1.5 bg-[#FFF0F0] border border-[#FFDADA] rounded-full">
-                                    <img src="./assets/img/icon/bug-icon.png" alt="">
-                                    <span class="text-[#FF5A5F] text-[11px] font-bold uppercase">Bug</span>
-                                </div>
-                                <div
-                                    class="flex items-center gap-1.5 px-3 py-1.5 bg-[#FFF9E6] border border-[#FFECB3] rounded-full">
-                                    <img src="./assets/img/icon/icon-03.png" alt="">
-                                    <span class="text-[#D97706] text-[11px] font-bold uppercase">Help Wanted</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="px-6 py-5 border-t border-gray-100">
-                            <div class="flex flex-col gap-1.5">
-                                <p class="text-[#64748B] text-[13px]">
-                                    #1 by <span class="font-medium">john_doe</span>
-                                </p>
-                                <p class="text-[#64748B] text-[13px]">
-                                    1/15/2024
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-span-1">
-                    <div
-                        class="max-w-[350px] bg-white rounded-xl shadow-[0_1px_6px_0_rgba(0,0,0,0.08)] overflow-hidden open-card border-t-[3px] border-[#A855F7]">
-                        <div class="p-4">
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="w-8 h-8 rounded-full bg-[#f0e2ff] flex items-center justify-center">
-                                    <img src="./assets/img/icon/check.png" alt="">
-                                </div>
-                                <span class="px-5 py-1.5 bg-[#fff6d1] text-[#f59e0b] text-xs font-bold rounded-full">
-                                    Low
-                                </span>
-                            </div>
-
-                            <h3 class="text-[18px] font-bold text-[#1E293B] leading-tight mb-2">
-                                Fix Navigation Menu On Mobile Devices
-                            </h3>
-
-                            <p class="text-[#64748B] text-sm leading-relaxed mb-5">
-                                The navigation menu doesn't collapse properly on mobile devices...
-                            </p>
-
-                            <div class="flex items-center gap-2">
-                                <div
-                                    class="flex items-center gap-1.5 px-3 py-1.5 bg-[#FFF0F0] border border-[#FFDADA] rounded-full">
-                                    <img src="./assets/img/icon/bug-icon.png" alt="">
-                                    <span class="text-[#FF5A5F] text-[11px] font-bold uppercase">Bug</span>
-                                </div>
-                                <div
-                                    class="flex items-center gap-1.5 px-3 py-1.5 bg-[#FFF9E6] border border-[#FFECB3] rounded-full">
-                                    <img src="./assets/img/icon/icon-03.png" alt="">
-                                    <span class="text-[#D97706] text-[11px] font-bold uppercase">Help Wanted</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="px-6 py-5 border-t border-gray-100">
-                            <div class="flex flex-col gap-1.5">
-                                <p class="text-[#64748B] text-[13px]">
-                                    #1 by <span class="font-medium">john_doe</span>
-                                </p>
-                                <p class="text-[#64748B] text-[13px]">
-                                    1/15/2024
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-span-1">
-                    <div
-                        class="max-w-[350px] bg-white rounded-xl shadow-[0_1px_6px_0_rgba(0,0,0,0.08)] overflow-hidden open-card border-t-[3px] border-[#00A96E]">
-                        <div class="p-4">
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="w-8 h-8 rounded-full bg-[#E6F6EF] flex items-center justify-center">
-                                    <img src="./assets/img/icon/icon-01.png" alt="">
-                                </div>
-                                <span class="px-5 py-1.5 bg-[#fff6d1] text-[#f59e0b] text-xs font-bold rounded-full">
-                                    Medium
-                                </span>
-                            </div>
-
-                            <h3 class="text-[18px] font-bold text-[#1E293B] leading-tight mb-2">
-                                Fix Navigation Menu On Mobile Devices
-                            </h3>
-
-                            <p class="text-[#64748B] text-sm leading-relaxed mb-5">
-                                The navigation menu doesn't collapse properly on mobile devices...
-                            </p>
-
-                            <div class="flex items-center gap-2">
-                                <div
-                                    class="flex items-center gap-1.5 px-3 py-1.5 bg-[#FFF0F0] border border-[#FFDADA] rounded-full">
-                                    <img src="./assets/img/icon/bug-icon.png" alt="">
-                                    <span class="text-[#FF5A5F] text-[11px] font-bold uppercase">Bug</span>
-                                </div>
-                                <div
-                                    class="flex items-center gap-1.5 px-3 py-1.5 bg-[#FFF9E6] border border-[#FFECB3] rounded-full">
-                                    <img src="./assets/img/icon/icon-03.png" alt="">
-                                    <span class="text-[#D97706] text-[11px] font-bold uppercase">Help Wanted</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="px-6 py-5 border-t border-gray-100">
-                            <div class="flex flex-col gap-1.5">
-                                <p class="text-[#64748B] text-[13px]">
-                                    #1 by <span class="font-medium">john_doe</span>
-                                </p>
-                                <p class="text-[#64748B] text-[13px]">
-                                    1/15/2024
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- issues content here -->
             </div>
         </div>
     </section>
+
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/tab.js"></script>
 
 </body>
 
