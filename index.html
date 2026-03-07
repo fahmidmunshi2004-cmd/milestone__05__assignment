@@ -25,8 +25,8 @@
 </head>
 
 <body>
-    <header class="header-area bg-white">
-        <div class="max-w-[1450px] mx-auto flex items-center justify-between py-[14px]">
+    <header class="header-area bg-white shadow-[0_5px_10px_0_rgba(0,0,0,0.08)] mb-[60px]">
+        <div class="max-w-[1450px] mx-4 xl:mx-auto flex items-center justify-between py-[14px]">
             <div class="logo">
                 <a href="#">
                     <img src="./assets/img/logo/main-logo.png" alt="">
@@ -34,16 +34,271 @@
             </div>
             <div class="right flex items-center gap-4">
                 <div class="search flex items-center gap-4">
-                    <input type="text" placeholder="Search issues..."
-                        class="w-[300px] px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 placeholder:text-gray-400">
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <svg width="18" height="18" viewBox="0 0 14 14" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M13.2932 12.232L10.3251 9.26261C11.215 8.1029 11.6305 6.6481 11.4873 5.19332C11.3441 3.73854 10.6528 2.39272 9.55376 1.42885C8.45473 0.46499 7.03021 -0.0447324 5.56917 0.00308386C4.10814 0.0509001 2.72 0.652675 1.68634 1.68634C0.652675 2.72 0.0509001 4.10814 0.00308386 5.56917C-0.0447324 7.03021 0.46499 8.45473 1.42885 9.55376C2.39272 10.6528 3.73854 11.3441 5.19332 11.4873C6.6481 11.6305 8.1029 11.215 9.26261 10.3251L12.2332 13.2964C12.303 13.3661 12.3858 13.4215 12.477 13.4592C12.5681 13.497 12.6658 13.5164 12.7645 13.5164C12.8631 13.5164 12.9608 13.497 13.052 13.4592C13.1431 13.4215 13.226 13.3661 13.2957 13.2964C13.3655 13.2266 13.4208 13.1438 13.4586 13.0526C13.4964 12.9615 13.5158 12.8638 13.5158 12.7651C13.5158 12.6664 13.4964 12.5688 13.4586 12.4776C13.4208 12.3864 13.3655 12.3036 13.2957 12.2339L13.2932 12.232ZM1.51261 5.76261C1.51261 4.92204 1.76187 4.10035 2.22886 3.40144C2.69586 2.70253 3.35962 2.15779 4.13621 1.83612C4.91279 1.51445 5.76732 1.43029 6.59174 1.59427C7.41616 1.75826 8.17344 2.16303 8.76781 2.75741C9.36219 3.35178 9.76696 4.10906 9.93095 4.93348C10.0949 5.7579 10.0108 6.61243 9.6891 7.38901C9.36742 8.1656 8.82269 8.82936 8.12378 9.29636C7.42487 9.76335 6.60318 10.0126 5.76261 10.0126C4.6358 10.0115 3.55546 9.56331 2.75869 8.76653C1.96191 7.96976 1.51377 6.88942 1.51261 5.76261Z"
+                                    fill="#64748B" />
+                            </svg>
+                        </div>
+
+                        <input type="text" placeholder="Search issues..."
+                            class="w-[300px] pl-11 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 placeholder:text-gray-400">
+                    </div>
+
                     <button
-                        class="w-full bg-[#4A00FF] hover:bg-[#4300D9] text-white font-bold py-3 rounded-xl transition-all text-lg">
+                        class="bg-[#4A00FF] hover:bg-[#4300D9] text-white font-bold px-8 py-3 rounded-xl transition-all text-lg">
                         Search
                     </button>
                 </div>
             </div>
         </div>
     </header>
+
+    <section class="max-w-[1170px] mx-auto">
+        <div
+            class="tab-area bg-white p-5 w-full rounded-lg  shadow-[0_1px_6px_0_rgba(0,0,0,0.08)] border border-gray-100 inline-flex gap-3 mb-4">
+            <button class="px-8 py-2.5 bg-[#4A00FF] text-white font-semibold rounded-md transition-colors">
+                All
+            </button>
+
+            <button
+                class="px-8 py-2.5 bg-white text-[#5E6C84] font-semibold border border-gray-200 rounded-md hover:bg-gray-50 transition-colors">
+                Open
+            </button>
+
+            <button
+                class="px-8 py-2.5 bg-white text-[#5E6C84] font-semibold border border-gray-200 rounded-md hover:bg-gray-50 transition-colors">
+                Closed
+            </button>
+        </div>
+
+        <div class="tab-content bg-[#FBFBFB] shadow-[0_1px_6px_0_rgba(0,0,0,0.08)] p-4">
+            <div
+                class="flex items-center justify-between py-6 px-4 shadow-[0_1px_6px_0_rgba(0,0,0,0.08)] bg-white border border-gray-100 rounded-lg mb-4">
+
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-[#F0E9FF] rounded-full flex items-center justify-center">
+                        <svg width="28" height="27" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M23.0456 3.95376C21.1576 2.06583 18.7521 0.780171 16.1334 0.259341C13.5147 -0.261489 10.8003 0.00590718 8.33357 1.02772C5.86682 2.04952 3.75846 3.77985 2.2751 5.9999C0.791739 8.21994 0 10.83 0 13.5C0 16.17 0.791739 18.7801 2.2751 21.0001C3.75846 23.2202 5.86682 24.9505 8.33357 25.9723C10.8003 26.9941 13.5147 27.2615 16.1334 26.7407C18.7521 26.2198 21.1576 24.9342 23.0456 23.0463C24.3086 21.7979 25.3113 20.3113 25.9957 18.6727C26.68 17.034 27.0324 15.2758 27.0324 13.5C27.0324 11.7242 26.68 9.96601 25.9957 8.32735C25.3113 6.68869 24.3086 5.20212 23.0456 3.95376ZM20.9206 6.07876C21.324 6.4801 21.6939 6.91361 22.0269 7.37501L18.6194 11.3863L15.7069 3.23501C17.6839 3.65669 19.496 4.64329 20.9231 6.07501L20.9206 6.07876ZM6.06438 6.07876C7.77694 4.35752 10.0364 3.28771 12.4531 3.05376L14.2231 8.01001L5.70813 6.45126C5.82438 6.32376 5.94313 6.19876 6.06688 6.07501L6.06438 6.07876ZM3.49438 16.7125C2.70242 14.2335 2.85377 11.5493 3.91938 9.17501L9.09938 10.125L3.49438 16.7125ZM6.06313 20.925C5.66142 20.5222 5.29312 20.0875 4.96188 19.625L8.36938 15.6138L11.2819 23.765C9.30532 23.343 7.49371 22.3565 6.06688 20.925H6.06313ZM10.6081 12.9738L12.5056 10.7425L15.3881 11.2688L16.3731 14.0263L14.4769 16.2575L11.5944 15.7313L10.6081 12.9738ZM20.9194 20.925C19.2065 22.6458 16.9473 23.7155 14.5306 23.95L12.7631 19L21.2806 20.555C21.1644 20.6763 21.0456 20.8013 20.9231 20.925H20.9194ZM17.8894 16.875L23.4944 10.2875C24.2865 12.7666 24.1347 15.451 23.0681 17.825L17.8894 16.875Z"
+                                fill="#4A00FF" />
+                        </svg>
+                    </div>
+
+                    <div>
+                        <h2 class="text-xl font-bold text-[#1E293B]">50 Issues</h2>
+                        <p class="text-[#64748B] text-sm">Track and manage your project issues</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-6">
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 bg-[#00A96E] rounded-full"></span>
+                        <span class="text-[#1E293B] font-medium">Open</span>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 bg-[#A855F7] rounded-full"></span>
+                        <span class="text-[#1E293B] font-medium">Closed</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-4 gap-3">
+                <div class="col-span-1">
+                    <div
+                        class="max-w-[350px] bg-white rounded-xl shadow-[0_1px_6px_0_rgba(0,0,0,0.08)] overflow-hidden open-card border-t-[3px] border-[#00A96E]">
+                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-8 h-8 rounded-full bg-[#E6F6EF] flex items-center justify-center">
+                                    <img src="./assets/img/icon/icon-01.png" alt="">
+                                </div>
+                                <span class="px-5 py-1.5 bg-[#FFF0F0] text-[#FF5A5F] text-xs font-bold rounded-full">
+                                    HIGH
+                                </span>
+                            </div>
+
+                            <h3 class="text-[18px] font-bold text-[#1E293B] leading-tight mb-2">
+                                Fix Navigation Menu On Mobile Devices
+                            </h3>
+
+                            <p class="text-[#64748B] text-sm leading-relaxed mb-5">
+                                The navigation menu doesn't collapse properly on mobile devices...
+                            </p>
+
+                            <div class="flex items-center gap-2">
+                                <div
+                                    class="flex items-center gap-1.5 px-3 py-1.5 bg-[#FFF0F0] border border-[#FFDADA] rounded-full">
+                                    <img src="./assets/img/icon/bug-icon.png" alt="">
+                                    <span class="text-[#FF5A5F] text-[11px] font-bold uppercase">Bug</span>
+                                </div>
+                                <div
+                                    class="flex items-center gap-1.5 px-3 py-1.5 bg-[#FFF9E6] border border-[#FFECB3] rounded-full">
+                                    <img src="./assets/img/icon/icon-03.png" alt="">
+                                    <span class="text-[#D97706] text-[11px] font-bold uppercase">Help Wanted</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="px-6 py-5 border-t border-gray-100">
+                            <div class="flex flex-col gap-1.5">
+                                <p class="text-[#64748B] text-[13px]">
+                                    #1 by <span class="font-medium">john_doe</span>
+                                </p>
+                                <p class="text-[#64748B] text-[13px]">
+                                    1/15/2024
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-1">
+                    <div
+                        class="max-w-[350px] bg-white rounded-xl shadow-[0_1px_6px_0_rgba(0,0,0,0.08)] overflow-hidden open-card border-t-[3px] border-[#00A96E]">
+                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-8 h-8 rounded-full bg-[#E6F6EF] flex items-center justify-center">
+                                    <img src="./assets/img/icon/icon-01.png" alt="">
+                                </div>
+                                <span class="px-5 py-1.5 bg-[#fff6d1] text-[#f59e0b] text-xs font-bold rounded-full">
+                                    Medium
+                                </span>
+                            </div>
+
+                            <h3 class="text-[18px] font-bold text-[#1E293B] leading-tight mb-2">
+                                Fix Navigation Menu On Mobile Devices
+                            </h3>
+
+                            <p class="text-[#64748B] text-sm leading-relaxed mb-5">
+                                The navigation menu doesn't collapse properly on mobile devices...
+                            </p>
+
+                            <div class="flex items-center gap-2">
+                                <div
+                                    class="flex items-center gap-1.5 px-3 py-1.5 bg-[#FFF0F0] border border-[#FFDADA] rounded-full">
+                                    <img src="./assets/img/icon/bug-icon.png" alt="">
+                                    <span class="text-[#FF5A5F] text-[11px] font-bold uppercase">Bug</span>
+                                </div>
+                                <div
+                                    class="flex items-center gap-1.5 px-3 py-1.5 bg-[#FFF9E6] border border-[#FFECB3] rounded-full">
+                                    <img src="./assets/img/icon/icon-03.png" alt="">
+                                    <span class="text-[#D97706] text-[11px] font-bold uppercase">Help Wanted</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="px-6 py-5 border-t border-gray-100">
+                            <div class="flex flex-col gap-1.5">
+                                <p class="text-[#64748B] text-[13px]">
+                                    #1 by <span class="font-medium">john_doe</span>
+                                </p>
+                                <p class="text-[#64748B] text-[13px]">
+                                    1/15/2024
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-1">
+                    <div
+                        class="max-w-[350px] bg-white rounded-xl shadow-[0_1px_6px_0_rgba(0,0,0,0.08)] overflow-hidden open-card border-t-[3px] border-[#A855F7]">
+                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-8 h-8 rounded-full bg-[#f0e2ff] flex items-center justify-center">
+                                    <img src="./assets/img/icon/check.png" alt="">
+                                </div>
+                                <span class="px-5 py-1.5 bg-[#fff6d1] text-[#f59e0b] text-xs font-bold rounded-full">
+                                    Low
+                                </span>
+                            </div>
+
+                            <h3 class="text-[18px] font-bold text-[#1E293B] leading-tight mb-2">
+                                Fix Navigation Menu On Mobile Devices
+                            </h3>
+
+                            <p class="text-[#64748B] text-sm leading-relaxed mb-5">
+                                The navigation menu doesn't collapse properly on mobile devices...
+                            </p>
+
+                            <div class="flex items-center gap-2">
+                                <div
+                                    class="flex items-center gap-1.5 px-3 py-1.5 bg-[#FFF0F0] border border-[#FFDADA] rounded-full">
+                                    <img src="./assets/img/icon/bug-icon.png" alt="">
+                                    <span class="text-[#FF5A5F] text-[11px] font-bold uppercase">Bug</span>
+                                </div>
+                                <div
+                                    class="flex items-center gap-1.5 px-3 py-1.5 bg-[#FFF9E6] border border-[#FFECB3] rounded-full">
+                                    <img src="./assets/img/icon/icon-03.png" alt="">
+                                    <span class="text-[#D97706] text-[11px] font-bold uppercase">Help Wanted</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="px-6 py-5 border-t border-gray-100">
+                            <div class="flex flex-col gap-1.5">
+                                <p class="text-[#64748B] text-[13px]">
+                                    #1 by <span class="font-medium">john_doe</span>
+                                </p>
+                                <p class="text-[#64748B] text-[13px]">
+                                    1/15/2024
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-1">
+                    <div
+                        class="max-w-[350px] bg-white rounded-xl shadow-[0_1px_6px_0_rgba(0,0,0,0.08)] overflow-hidden open-card border-t-[3px] border-[#00A96E]">
+                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-8 h-8 rounded-full bg-[#E6F6EF] flex items-center justify-center">
+                                    <img src="./assets/img/icon/icon-01.png" alt="">
+                                </div>
+                                <span class="px-5 py-1.5 bg-[#fff6d1] text-[#f59e0b] text-xs font-bold rounded-full">
+                                    Medium
+                                </span>
+                            </div>
+
+                            <h3 class="text-[18px] font-bold text-[#1E293B] leading-tight mb-2">
+                                Fix Navigation Menu On Mobile Devices
+                            </h3>
+
+                            <p class="text-[#64748B] text-sm leading-relaxed mb-5">
+                                The navigation menu doesn't collapse properly on mobile devices...
+                            </p>
+
+                            <div class="flex items-center gap-2">
+                                <div
+                                    class="flex items-center gap-1.5 px-3 py-1.5 bg-[#FFF0F0] border border-[#FFDADA] rounded-full">
+                                    <img src="./assets/img/icon/bug-icon.png" alt="">
+                                    <span class="text-[#FF5A5F] text-[11px] font-bold uppercase">Bug</span>
+                                </div>
+                                <div
+                                    class="flex items-center gap-1.5 px-3 py-1.5 bg-[#FFF9E6] border border-[#FFECB3] rounded-full">
+                                    <img src="./assets/img/icon/icon-03.png" alt="">
+                                    <span class="text-[#D97706] text-[11px] font-bold uppercase">Help Wanted</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="px-6 py-5 border-t border-gray-100">
+                            <div class="flex flex-col gap-1.5">
+                                <p class="text-[#64748B] text-[13px]">
+                                    #1 by <span class="font-medium">john_doe</span>
+                                </p>
+                                <p class="text-[#64748B] text-[13px]">
+                                    1/15/2024
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </body>
 
