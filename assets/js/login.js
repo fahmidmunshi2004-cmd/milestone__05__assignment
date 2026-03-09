@@ -1,4 +1,4 @@
-// login.js
+// login.js //
 const loginBtn = document.querySelector("button");
 const usernameInput = document.querySelector("input[type='text']");
 const passwordInput = document.querySelector("input[type='password']");

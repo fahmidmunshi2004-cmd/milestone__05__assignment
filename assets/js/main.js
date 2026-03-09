@@ -11,13 +11,13 @@ const issueContainer = document.querySelector(".grid");
 const searchInput = document.querySelector("input[placeholder='Search issues...']");
 const searchBtn = document.querySelector(".search button");
 
-// Header elements
-const headerTitle = document.querySelector(".text-xl.font-bold"); // 50 Issues
+// Header elements //
+const headerTitle = document.querySelector(".text-xl.font-bold");
 const tabs = document.querySelectorAll(".tab-btn");
 
 let allIssues = [];
 
-// ================= LOAD ALL ISSUES =================
+// ================= LOAD ALL ISSUES ================= //
 async function loadIssues() {
     showLoader();
 
@@ -27,7 +27,7 @@ async function loadIssues() {
         allIssues = data.data;
 
         displayIssues(allIssues);
-        updateHeaderCount(allIssues); // initial header
+        updateHeaderCount(allIssues);
     } catch (err) {
         console.error("Error loading issues:", err);
         issueContainer.innerHTML = `<p class="col-span-4 text-center text-red-500 py-10">Failed to load issues.</p>`;
@@ -36,12 +36,12 @@ async function loadIssues() {
     hideLoader();
 }
 
-// ================= UPDATE HEADER COUNT =================
+// ================= UPDATE HEADER COUNT ================= //
 function updateHeaderCount(issues) {
     headerTitle.textContent = `${issues.length} Issues`;
 }
 
-// ================= DISPLAY ISSUES =================
+// ================= DISPLAY ISSUES ================= //
 function displayIssues(issues) {
     issueContainer.innerHTML = "";
 
@@ -92,26 +92,26 @@ function displayIssues(issues) {
     });
 }
 
-// ================= SEARCH =================
+// ================= TABS ================= //
 searchBtn.addEventListener("click", () => {
     const text = searchInput.value.trim().toLowerCase();
     if (!text) return displayIssues(allIssues);
 
     const filtered = allIssues.filter(issue =>
         issue.title.toLowerCase().includes(text) ||
-        issue.description.toLowerCase().includes(text)
+        issue.description.toLowerCase().includes(text) 
     );
 
     displayIssues(filtered);
-    updateHeaderCount(filtered); // Update header
+    updateHeaderCount(filtered);
 });
 
-// ================= TABS =================
+// ================= TABS =================//
 tabs.forEach(tab => {
     tab.addEventListener("click", () => {
         const tabName = tab.getAttribute("data-tab");
 
-        // Tab styling
+        // Tab styling //
         tabs.forEach(t => {
             t.classList.remove("bg-[#4A00FF]", "text-white");
             t.classList.add("bg-white", "text-[#5E6C84]");
@@ -119,15 +119,15 @@ tabs.forEach(tab => {
         tab.classList.add("bg-[#4A00FF]", "text-white");
         tab.classList.remove("bg-white", "text-[#5E6C84]");
 
-        // Filter issues by tab
+        // Filter issues by tab //
         let filtered = tabName === "all" ? allIssues : allIssues.filter(issue => issue.status === tabName);
 
         displayIssues(filtered);
-        updateHeaderCount(filtered); // Update header count
+        updateHeaderCount(filtered); 
     });
 });
 
-// ================= MODAL =================
+// ================= MODAL ================= //
 async function openModal(id) {
     try {
         const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`);
@@ -135,7 +135,6 @@ async function openModal(id) {
         const issue = data.data;
 
         const modal = document.createElement("div");
-        // modal.className = "fixed inset-0 bg-black/50 flex items-center justify-center z-50";
 
         modal.innerHTML = `
 <div class="fixed inset-0 bg-black/20 flex items-center justify-center p-4 z-50">
@@ -198,7 +197,7 @@ async function openModal(id) {
     }
 }
 
-// ================= LOADER =================
+// ================= LOADER ================= //
 function showLoader() {
     issueContainer.innerHTML = `
         <div class="col-span-4 flex justify-center py-20">
