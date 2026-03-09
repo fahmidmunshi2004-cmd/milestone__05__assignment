@@ -54,7 +54,7 @@ function displayIssues(issues) {
 
         card.innerHTML = `
         <div onclick="openModal(${issue.id})"
-        class="max-w-[350px] h-full cursor-pointer bg-white rounded-xl shadow-[0_1px_6px_0_rgba(0,0,0,0.08)] overflow-hidden border-t-[3px] ${issue.status === 'open' ? 'border-[#00A96E]' : 'border-[#A855F7]'}">
+        class="h-full flex flex-col justify-between cursor-pointer bg-white rounded-xl shadow-[0_1px_6px_0_rgba(0,0,0,0.08)] overflow-hidden border-t-[3px] ${issue.status === 'open' ? 'border-[#00A96E]' : 'border-[#A855F7]'}">
 
             <div class="p-4">
 
@@ -70,17 +70,17 @@ function displayIssues(issues) {
 
                 </div>
 
-                <h3 class="text-[18px] font-bold text-[#1E293B] mb-2">
+                <h3 class="text-[14px] font-bold text-[#1E293B] mb-2">
                 ${issue.title}
                 </h3>
 
-                <p class="text-[#64748B] text-sm mb-5">
+                <p class="text-[#64748B] text-[12px] mb-5">
                 ${issue.description.slice(0, 80)}...
                 </p>
 
                 <div class="flex items-center gap-2">
                     ${issue.labels.map(label => `
-                        <div class="px-3 py-1.5 bg-[#FFF9E6] border border-[#FFECB3] rounded-full">
+                        <div class="px-3 bg-[#FFF9E6] border border-[#FFECB3] rounded-full">
                         <span class="text-[#D97706] text-[10px] font-bold uppercase">${label}</span>
                         </div>
                     `).join("")}
@@ -169,42 +169,110 @@ async function openModal(id) {
         const modal = document.createElement("div");
 
         modal.innerHTML = `
-<div class="fixed inset-0 bg-black/20 flex items-center justify-center p-4 z-50">
+        <div id="modalOverlay" class="fixed inset-0 bg-black/20 flex items-center justify-center p-4 z-50 transition-opacity duration-300">
 
-<div class="bg-white w-full max-w-[700px] rounded-2xl shadow-lg p-8">
+            <div id="modalBox" class="bg-white w-full max-w-[500px] h-max rounded-2xl shadow-lg p-5 relative transform transition-all duration-300 scale-100">
 
-<h2 class="text-[28px] font-bold mb-4">${issue.title}</h2>
+                <h2 class="text-[24px] font-bold text-[#1E293B] mb-4">
+                    ${issue.title}
+                </h2>
 
-<div class="flex items-center gap-3 mb-6">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="px-3 py-1 ${issue.status === 'open' ? 'bg-[#00A96E]' : 'bg-[#A855F7]'} text-white text-sm font-medium rounded-full">
+                        ${issue.status}
+                    </span>
 
-<span class="px-3 py-1 ${issue.status === 'open' ? 'bg-[#00A96E]' : 'bg-[#A855F7]'} text-white rounded-full text-sm">
-${issue.status}
-</span>
+                    <span class="text-[#64748B] text-sm flex items-center gap-2">
+                        <span class="w-1 h-1 bg-[#64748B] rounded-full"></span>
+                        Opened by ${issue.author}
+                        <span class="w-1 h-1 bg-[#64748B] rounded-full"></span>
+                        ${issue.createdAt}
+                    </span>
+                </div>
 
-<span class="text-sm text-gray-500">
-Opened by ${issue.author} • ${issue.createdAt}
-</span>
+                <div class="flex items-center gap-3 mb-4">
+                    ${issue.labels.map(label => `
+                    <div class="flex items-center gap-1.5 px-3 py-1 bg-[#FFF9E6] border border-[#FFECB3] rounded-full">
+                        <span class="text-[#D97706] text-xs">
+                        <svg width="9" height="11" viewBox="0 0 9 11" fill="none">
+                        <path fill="#EF4444"/>
+                        </svg>
+                        </span>
 
-</div>
+                        <span class="text-[#D97706] text-[11px] font-bold uppercase tracking-wider">
+                            ${label}
+                        </span>
+                    </div>
+                    `).join("")}
+                </div>
 
-<p class="text-gray-600 mb-8">
-${issue.description}
-</p>
+                <p class="text-[#64748B] text-lg leading-relaxed mb-4">
+                    ${issue.description}
+                </p>
 
-<div class="flex justify-end">
+                <div class="bg-[#F8FAFC] rounded-2xl p-2 flex items-start gap-32 mb-4">
 
-<button onclick="this.closest('.fixed').remove()"
-class="bg-[#4F00FF] hover:bg-[#4300D9] text-white py-3 px-8 rounded-xl">
-Close
-</button>
+                    <div class="space-y-2">
+                        <p class="text-[#64748B] text-lg">Assignee:</p>
+                        <p class="text-[#1E293B] font-bold text-base">
+                            ${issue.author}
+                        </p>
+                    </div>
 
-</div>
+                    <div class="space-y-3">
+                        <p class="text-[#64748B] text-lg">Priority:</p>
 
-</div>
-</div>
-`;
+                        <span class="px-4 py-1.5 
+                        ${issue.priority === 'HIGH' ? 'bg-[#EF4444]' :
+                issue.priority === 'MEDIUM' ? 'bg-[#F59E0B]' : 'bg-[#10B981]'}
+                        text-white text-xs font-bold rounded-lg shadow-sm">
+
+                        ${issue.priority}
+
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="flex justify-end">
+
+                    <button id="closeBtn"
+                    class="bg-[#4F00FF] h-[44px] hover:bg-[#4300D9] text-white font-bold px-10 rounded-xl transition-all text-lg shadow-md shadow-indigo-100">
+
+                    Close
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+        `;
 
         document.body.appendChild(modal);
+
+        const overlay = modal.querySelector("#modalOverlay");
+        const box = modal.querySelector("#modalBox");
+        const closeBtn = modal.querySelector("#closeBtn");
+
+        function closeModal() {
+
+            overlay.classList.add("opacity-0");
+            box.classList.add("scale-95");
+
+            setTimeout(() => {
+                modal.remove();
+            }, 300);
+        }
+
+        closeBtn.addEventListener("click", closeModal);
+
+        overlay.addEventListener("click", (e) => {
+            if (e.target === overlay) {
+                closeModal();
+            }
+        });
 
     } catch (err) {
 
