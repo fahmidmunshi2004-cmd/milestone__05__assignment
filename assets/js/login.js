@@ -6,7 +6,7 @@ loginBtn.addEventListener("click", () => {
     const username = usernameInput.value.trim();
     const password = passwordInput.value.trim();
     if (username === "admin" && password === "admin123") {
-        localStorage.setItem("loggedIn", "true");
+        sessionStorage.setItem("loggedIn", "true");
         window.location.href = "index.html"; 
     } else {
         alert("Invalid credentials!");
